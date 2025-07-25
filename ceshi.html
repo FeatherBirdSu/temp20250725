@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>银发数字技能小测试</title>
+    <style>
+        body {
+            font-family: "Microsoft YaHei", sans-serif;
+            background-color: #f5f5f7;
+            color: #333;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            font-size: 24px;
+            margin-bottom: 25px;
+        }
+        .question {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+        .question-title {
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: #34495e;
+        }
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .option {
+            padding: 15px;
+            background: #f9f9f9;
+            border-radius: 8px;
+            border: 2px solid #ddd;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 16px;
+        }
+        .option:hover {
+            border-color: #3498db;
+            background: #f0f7ff;
+        }
+        .option.correct {
+            border-color: #2ecc71;
+            background: #eafaf1;
+        }
+        .option.incorrect {
+            border-color: #e74c3c;
+            background: #fdedeb;
+        }
+        .feedback {
+            margin-top: 15px;
+            padding: 15px;
+            border-radius: 8px;
+            display: none; /* 默认隐藏提示 */
+        }
+        .feedback.correct {
+            background: #eafaf1;
+            color: #27ae60;
+        }
+        .feedback.incorrect {
+            background: #fdedeb;
+            color: #c0392b;
+        }
+        .next-btn {
+            margin-top: 20px;
+            padding: 12px 24px;
+            background: #3498db;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s;
+            display: none;
+        }
+        .next-btn:hover {
+            background: #2980b9;
+        }
+        .result {
+            text-align: center;
+            padding: 20px;
+            display: none;
+        }
+        .result h2 {
+            color: #34495e;
+            margin-bottom: 20px;
+        }
+        .result p {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+        .tips {
+            margin-top: 30px;
+            padding: 20px;
+            background: #fff3cd;
+            border-radius: 8px;
+            border: 1px solid #ffeeba;
+            color: #856404;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>老年人数字技能小测试</h1>
+        
+        <!-- 问题1 -->
+        <div class="question" id="q1">
+            <div class="question-title">1. 您帮独居的母亲用微信给外地的弟弟发定位，应该怎么做？</div>
+            <div class="options">
+                <div class="option" data-correct="false">A. 让母亲口述地址，打字发给弟弟</div>
+                <div class="option" data-correct="true">B. 打开微信聊天界面 → 点击"+"号 → 选择"位置" → 发送实时位置</div>
+                <div class="option" data-correct="false">C. 用手机拍照发照片，让弟弟猜位置</div>
+                <div class="option" data-correct="false">D. 拨打弟弟电话，在电话里描述周围建筑</div>
+            </div>
+            <div class="feedback correct">正确！微信实时定位功能能让家人准确掌握位置，特别适合独居老人遇到紧急情况时使用。</div>
+            <div class="feedback incorrect">不正确哦。正确步骤是：打开微信聊天界面 → 点击"+"号 → 选择"位置" → 发送实时位置，这样家人能更准确地获取位置信息。</div>
+        </div>
+
+        <!-- 问题2 -->
+        <div class="question" id="q2" style="display: none;">
+            <div class="question-title">2. 78岁的王明去医院看病，因老年机无法出示健康码，正确的解决方式是？</div>
+            <div class="options">
+                <div class="option" data-correct="false">A. 回家取智能手机再来医院</div>
+                <div class="option" data-correct="false">B. 和医院工作人员争吵要求通融</div>
+                <div class="option" data-correct="true">C. 出示身份证，通过人工登记完成核验</div>
+                <div class="option" data-correct="false">D. 放弃看病直接回家</div>
+            </div>
+            <div class="feedback correct">正确！根据规定，无智能手机的老年人可凭身份证通过人工登记进入医院，这体现了适老化服务的温度。</div>
+            <div class="feedback incorrect">不正确哦。正确做法是出示身份证通过人工登记，医院应为老年人提供无健康码的替代方案，就像文档中王明的经历所提示的那样。</div>
+        </div>
+
+        <!-- 问题3 -->
+        <div class="question" id="q3" style="display: none;">
+            <div class="question-title">3. 收到一条短信："您的养老金账户异常，点击链接认证否则冻结"，应该怎么做？</div>
+            <div class="options">
+                <div class="option" data-correct="false">A. 立即点击链接，按提示输入银行卡信息</div>
+                <div class="option" data-correct="false">B. 害怕账户冻结，赶紧告诉邻居帮忙操作</div>
+                <div class="option" data-correct="true">C. 不点击链接，拨打社保局官方电话核实</div>
+                <div class="option" data-correct="false">D. 转发给子女，让他们帮忙点击链接</div>
+            </div>
+            <div class="feedback correct">正确！这很可能是诈骗短信，老年人应警惕陌生链接，通过官方渠道核实信息可有效防范网络诈骗。</div>
+            <div class="feedback incorrect">不正确哦。这类短信多为诈骗，正确做法是不点击链接，通过社保局官方电话核实，避免个人信息泄露和财产损失。</div>
+        </div>
+
+        <!-- 问题4：微信红包操作 -->
+        <div class="question" id="q4" style="display: none;">
+            <div class="question-title">4. 母亲想给孙子发微信红包，却不知道怎么操作，正确步骤是？</div>
+            <div class="options">
+                <div class="option" data-correct="false">A. 让孙子自己从母亲微信里转钱</div>
+                <div class="option" data-correct="true">B. 打开聊天界面 → 点击"+"号 → 选择"红包" → 输入金额和密码</div>
+                <div class="option" data-correct="false">C. 把现金给邻居，让邻居帮忙发红包</div>
+                <div class="option" data-correct="false">D. 截图自己的零钱页面，发给孙子看</div>
+            </div>
+            <div class="feedback correct">正确！文档显示超过八成的老年网民会收发红包，掌握微信红包操作能让老年人更好地参与家庭互动{insert\_element\_0\_}。</div>
+            <div class="feedback incorrect">不正确哦。正确步骤是打开聊天界面→点击"+"号→选择"红包"→输入金额和密码，这是老年人常用的社交功能之一{insert\_element\_1\_}。</div>
+        </div>
+
+        <!-- 问题5：现金支付困境 -->
+        <div class="question" id="q5" style="display: none;">
+            <div class="question-title">5. 老人坐出租车时司机说"不收现金"，以下合理解决方式是？</div>
+            <div class="options">
+                <div class="option" data-correct="false">A. 下车走路回家，不坐出租车</div>
+                <div class="option" data-correct="false">B. 强制司机必须收现金</div>
+                <div class="option" data-correct="true">C. 改乘支持现金支付的公交车或求助路人帮忙手机支付</div>
+                <div class="option" data-correct="false">D. 打电话让家人送手机过来</div>
+            </div>
+            <div class="feedback correct">正确！就像文档中王明的经历，遇到不收现金的情况可选择其他交通方式，社会应保障老年人现金支付权利{insert\_element\_2\_}。</div>
+            <div class="feedback incorrect">不正确哦。合理做法是改乘支持现金的交通工具，文档中王明就因出租车不收现金而选择公交车，这是应对支付困境的实际方式{insert\_element\_3\_}。</div>
+        </div>
+
+        <!-- 问题6：健康影响认知 -->
+        <div class="question" id="q6" style="display: none;">
+            <div class="question-title">6. 发现老人每天低头看手机超过4小时，可能带来的危害不包括？</div>
+            <div class="options">
+                <div class="option" data-correct="false">A. 颈椎和腰椎疼痛</div>
+                <div class="option" data-correct="false">B. 眼睛干涩、视力下降</div>
+                <div class="option" data-correct="true">C. 社交能力增强</div>
+                <div class="option" data-correct="false">D. 心理上的孤独感增加</div>
+            </div>
+            <div class="feedback correct">正确！文档指出长时间沉迷手机会减少面对面交流，导致社交功能下降，而非增强社交能力{insert\_element\_4\_}。</div>
+            <div class="feedback incorrect">不正确哦。长时间看手机会导致颈椎问题、眼部不适和社交孤立，就像文档中提到的沉迷网络的危害那样，社交能力增强并不是可能的结果{insert\_element\_5\_}。</div>
+        </div>
+
+        <!-- 问题7：老年大学作用 -->
+        <div class="question" id="q7" style="display: none;">
+            <div class="question-title">7. 老年大学开设"手机实用技能课"的主要作用是？</div>
+            <div class="options">
+                <div class="option" data-correct="false">A. 让老人每天都有地方去玩</div>
+                <div class="option" data-correct="true">B. 帮助老人提升数字技能，更好适应数字生活</div>
+                <div class="option" data-correct="false">C. 只是形式上的课程，没有实际用处</div>
+                <div class="option" data-correct="false">D. 代替家人陪伴老人</div>
+            </div>
+            <div class="feedback correct">正确！文档显示老年大学数量大幅增长，这类课程能有效帮助老人提升数字胜任力，融入数字生活{insert\_element\_6\_}。</div>
+            <div class="feedback incorrect">不正确哦。老年大学的数字技能课程很重要，文档提到它为老人提供学习平台，帮助适应数字化生活，具有实际意义{insert\_element\_7\_}。</div>
+        </div>
+
+        <!-- 问题8：虚假广告辨别 -->
+        <div class="question" id="q8" style="display: none;">
+            <div class="question-title">8. 老人看到"特效保健品能根治百病"的广告，正确态度是？</div>
+            <div class="options">
+                <div class="option" data-correct="false">A. 立即购买，怕错过好产品</div>
+                <div class="option" data-correct="false">B. 告诉其他老人一起买，人多优惠</div>
+                <div class="option" data-correct="true">C. 不轻易相信，咨询医生或子女意见</div>
+                <div class="option" data-correct="false">D. 觉得广告说得有道理，先买一点试试</div>
+            </div>
+            <div class="feedback correct">正确！文档指出老年网民易受虚假广告误导，通过专业人士核实能避免上当受骗{insert\_element\_8\_}。</div>
+            <div class="feedback incorrect">不正确哦。这类广告多为虚假信息，文档提到网络虚假广告会误导老年人认知，正确做法是咨询医生或家人核实{insert\_element\_9\_}。</div>
+        </div>
+
+        <!-- 问题9：家庭教学方法 -->
+        <div class="question" id="q9" style="display: none;">
+            <div class="question-title">9. 教老人用智能手机时，以下有效的方法是？</div>
+            <div class="options">
+                <div class="option" data-correct="false">A. 一次性教很多功能，让老人自己练习</div>
+                <div class="option" data-correct="false">B. 说"这么简单都不会"，催促老人快点学</div>
+                <div class="option" data-correct="true">C. 用彩色笔手绘步骤图，标清操作顺序</div>
+                <div class="option" data-correct="false">D. 让老人自己看说明书学习</div>
+            </div>
+            <div class="feedback correct">正确！就像文档中网友分享的经验，手绘步骤图等耐心方法能帮助老人更好掌握手机操作{insert\_element\_10\_}。</div>
+            <div class="feedback incorrect">不正确哦。有效的方法是耐心教学，比如文档中提到的用彩色笔手绘操作步骤，而非催促或一次性教太多内容{insert\_element\_11\_}。</div>
+        </div>
+
+        <!-- 问题10：日常应用使用 -->
+        <div class="question" id="q10" style="display: none;">
+            <div class="question-title">10. 老人想查询明天天气以便出行，使用手机的正确方式是？</div>
+            <div class="options">
+                <div class="option" data-correct="false">A. 发朋友圈问所有人明天天气</div>
+                <div class="option" data-correct="true">B. 打开天气App或微信天气小程序查询</div>
+                <div class="option" data-correct="false">C. 打电话给气象局询问</div>
+                <div class="option" data-correct="false">D. 看报纸上的天气预报</div>
+            </div>
+            <div class="feedback correct">正确！文档提到老年人使用的App涵盖生活类工具，天气查询是数字生活的实用技能，能提升出行便利性{insert\_element\_12\_}。</div>
+            <div class="feedback incorrect">不正确哦。使用天气App或小程序是便捷方式，文档显示多数老年网民会使用各类生活应用，掌握这类技能很实用{insert\_element\_13\_}。</div>
+        </div>
+
+        <div class="result" id="result">
+            <h2>测试完成！</h2>
+            <p>您的得分：<span id="score">0</span>/10</p>
+            <p id="result-text"></p>
+        </div>
+
+        <div class="tips">
+            <strong>温馨提示</strong>：这些都是老年人在数字生活中常遇到的问题。家人可以通过手绘操作步骤图、反复演示等方式，帮助老人掌握这些实用技能，让他们在数字时代更有安全感。
+        </div>
+
+        <button class="next-btn" id="nextBtn">下一题</button>
+    </div>
+
+    <script>
+        let currentQuestion = 1;
+        const totalQuestions = 10;
+        let score = 0;
+
+        const options = document.querySelectorAll('.option');
+        const nextBtn = document.getElementById('nextBtn');
+        const result = document.getElementById('result');
+        const scoreDisplay = document.getElementById('score');
+        const resultText = document.getElementById('result-text');
+
+        options.forEach(option => {
+            option.addEventListener('click', function() {
+                const questionId = this.closest('.question').id;
+                const isCorrect = this.getAttribute('data-correct') === 'true';
+                const optionsInQuestion = document.querySelectorAll(`#${questionId} .option`);
+                const feedbacks = document.querySelectorAll(`#${questionId} .feedback`);
+                
+                // 禁用所有选项（防止重复选择）
+                optionsInQuestion.forEach(opt => opt.style.pointerEvents = 'none');
+                
+                // 隐藏所有提示（确保只显示当前选择对应的提示）
+                feedbacks.forEach(feedback => feedback.style.display = 'none');
+                
+                // 标记正确/错误选项并显示对应提示
+                if (isCorrect) {
+                    this.classList.add('correct');
+                    feedbacks[0].style.display = 'block'; // 显示正确提示
+                    score++;
+                } else {
+                    this.classList.add('incorrect');
+                    // 显示正确答案
+                    optionsInQuestion.forEach(opt => {
+                        if (opt.getAttribute('data-correct') === 'true') {
+                            opt.classList.add('correct');
+                        }
+                    });
+                    feedbacks[1].style.display = 'block'; // 显示错误提示
+                }
+
+                // 显示下一题按钮（最后一题除外）
+                if (currentQuestion < totalQuestions) {
+                    nextBtn.style.display = 'block';
+                } else {
+                    // 显示结果
+                    setTimeout(() => {
+                        document.querySelectorAll('.question').forEach(q => q.style.display = 'none');
+                        scoreDisplay.textContent = score;
+                        if (score >= 8) {
+                            resultText.textContent = '您对老年人数字生活场景非常了解，是帮助老人融入数字时代的好帮手！';
+                        } else if (score >= 5) {
+                            resultText.textContent = '您掌握了不少老年人数字技能知识，继续关注细节能更好帮助老人！';
+                        } else {
+                            resultText.textContent = '建议多了解老年人触网的实际困境，文档中的案例和数据能帮您更好理解他们的需求。';
+                        }
+                        result.style.display = 'block';
+                    }, 2000);
+                }
+            });
+        });
+
+        nextBtn.addEventListener('click', function() {
+            // 隐藏当前题目，显示下一题
+            document.getElementById(`q${currentQuestion}`).style.display = 'none';
+            currentQuestion++;
+            document.getElementById(`q${currentQuestion}`).style.display = 'block';
+            // 隐藏下一题按钮，等待下一题选择
+            nextBtn.style.display = 'none';
+        });
+    </script>
+</body>
+</html>

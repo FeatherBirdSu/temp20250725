@@ -1,0 +1,106 @@
+<!DOCTYPE html><br />
+<html lang="zh-CN"><br />
+<head><br />
+	<meta charset="UTF-8"><br />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"><br />
+	<title>张博文 - 个人简历</title><br />
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/html2docx/1.0.4/html2docx.js"></script><br />
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script><br />
+	<style>
+		<br/> /* 整体样式 */<br/> body {<br/> font-family: 'Microsoft YaHei', Arial, sans-serif;<br/> margin: 0;<br/> padding: 0;<br/> color: #333;<br/> background-color: #f5f5f5;<br/> }<br/> .resume-container {<br/> width: 21cm;<br/> min-height: 29.7cm;<br/> margin: 0 auto;<br/> background: white;<br/> box-shadow: 0 0 10px rgba(0,0,0,0.1);<br/> padding: 2cm;<br/> box-sizing: border-box;<br/> position: relative;<br/> }<br/> <br/> /* 头部样式 */<br/> .header {<br/> display: flex;<br/> justify-content: space-between;<br/> border-bottom: 2px solid #2c3e50;<br/> padding-bottom: 15px;<br/> margin-bottom: 20px;<br/> }<br/> .name-title {<br/> flex: 2;<br/> }<br/> .name {<br/> font-size: 28px;<br/> font-weight: bold;<br/> margin: 0;<br/> color: #2c3e50;<br/> }<br/> .title {<br/> font-size: 18px;<br/> color: #7f8c8d;<br/> margin: 5px 0;<br/> }<br/> .photo-placeholder {<br/> width: 120px;<br/> height: 160px;<br/> border: 1px dashed #ccc;<br/> display: flex;<br/> align-items: center;<br/> justify-content: center;<br/> background-color: #f9f9f9;<br/> flex-shrink: 0;<br/> }<br/> <br/> /* 基本信息样式 */<br/> .basic-info {<br/> display: grid;<br/> grid-template-columns: repeat(2, 1fr);<br/> gap: 10px;<br/> margin-bottom: 20px;<br/> }<br/> .info-item {<br/> display: flex;<br/> }<br/> .info-label {<br/> font-weight: bold;<br/> min-width: 80px;<br/> color: #2c3e50;<br/> }<br/> <br/> /* 各部分内容样式 */<br/> .section {<br/> margin-bottom: 20px;<br/> }<br/> .section-title {<br/> font-size: 18px;<br/> font-weight: bold;<br/> border-left: 4px solid #2c3e50;<br/> padding-left: 10px;<br/> margin: 15px 0;<br/> color: #2c3e50;<br/> }<br/> .experience-item, .award-item {<br/> margin-bottom: 12px;<br/> }<br/> .experience-title, .award-title {<br/> font-weight: bold;<br/> margin-bottom: 3px;<br/> }<br/> .experience-org, .award-org {<br/> font-style: italic;<br/> color: #7f8c8d;<br/> margin-bottom: 3px;<br/> }<br/> .experience-date, .award-date {<br/> color: #95a5a6;<br/> font-size: 14px;<br/> }<br/> <br/> /* 按钮样式 */<br/> .download-btn {<br/> position: absolute;<br/> top: 20px;<br/> right: 20px;<br/> padding: 8px 15px;<br/> background-color: #2c3e50;<br/> color: white;<br/> border: none;<br/> border-radius: 4px;<br/> cursor: pointer;<br/> font-size: 14px;<br/> }<br/> .download-btn:hover {<br/> background-color: #1a252f;<br/> }<br/> <br/> /* 打印样式调整 */<br/> @media print {<br/> body {<br/> background: none;<br/> }<br/> .resume-container {<br/> box-shadow: none;<br/> padding: 0;<br/> width: 100%;<br/> height: auto;<br/> }<br/> .download-btn {<br/> display: none;<br/> }<br/> }<br/> 
+	</style><br />
+</head><br />
+<body><br />
+	<div class="resume-container" id="resume"><br /> <button class="download-btn" onclick="exportToWord()">下载Word文档</button><br /> <br />
+		<div class="header"><br />
+			<div class="name-title"><br />
+				<h1 class="name">张博文</h1><br />
+				<p class="title">工商管理专业 | 学生会领导经验丰富</p><br />
+			</div><br />
+			<div class="photo-placeholder"><br /> 一寸照片位置<br /> </div><br />
+		</div><br /> <br />
+		<div class="basic-info"><br />
+			<div class="info-item"><br /> <span class="info-label">性别：</span><br /> <span class="info-content">男</span><br /> </div><br />
+			<div class="info-item"><br /> <span class="info-label">出生年月：</span><br /> <span class="info-content">2006年12月</span><br /> </div><br />
+			<div class="info-item"><br /> <span class="info-label">政治面貌：</span><br /> <span class="info-content">共青团员</span><br /> </div><br />
+			<div class="info-item"><br /> <span class="info-label">电话：</span><br /> <span class="info-content">[请添加电话号码]</span><br /> </div><br />
+			<div class="info-item"><br /> <span class="info-label">邮箱：</span><br /> <span class="info-content">[请添加邮箱地址]</span><br /> </div><br />
+		</div><br /> <br />
+		<div class="section"><br />
+			<h2 class="section-title">教育背景</h2><br />
+			<div class="experience-item"><br />
+				<div class="experience-title">山东农业大学 - 国际交流学院</div><br />
+				<div class="experience-org">工商德2501班</div><br />
+				<div class="experience-date">2025年入学</div><br />
+			</div><br />
+			<div class="experience-item"><br />
+				<div class="experience-title">新泰市第一中学北校</div><br />
+				<div class="experience-date">2022年 - 2025年</div><br />
+			</div><br />
+		</div><br /> <br />
+		<div class="section"><br />
+			<h2 class="section-title">领导与组织经验</h2><br />
+			<div class="experience-item"><br />
+				<div class="experience-title">校学生会主席</div><br />
+				<div class="experience-org">新泰市第一中学北校</div><br />
+				<div class="experience-date">2022年 - 2025年</div><br />
+			</div><br />
+			<div class="experience-item"><br />
+				<div class="experience-title">2022级自律委员会委员长</div><br />
+				<div class="experience-org">新泰市第一中学北校</div><br />
+			</div><br />
+			<div class="experience-item"><br />
+				<div class="experience-title">班长、团支书</div><br />
+				<div class="experience-org">新泰市第一中学北校30班</div><br />
+			</div><br />
+			<div class="experience-item"><br />
+				<div class="experience-title">学校主持人</div><br />
+				<div class="experience-org">新泰市第一中学北校</div><br />
+			</div><br />
+		</div><br /> <br />
+		<div class="section"><br />
+			<h2 class="section-title">荣誉与奖项</h2><br />
+			<div class="award-item"><br />
+				<div class="award-title">山东省2024年普通高中阶段优秀学生干部</div><br />
+				<div class="award-org">山东省教育厅 · 省级</div><br />
+				<div class="award-date">2024学年下学期</div><br />
+			</div><br />
+			<div class="award-item"><br />
+				<div class="award-title">泰安市普通高中学校市级优秀学生干部</div><br />
+				<div class="award-org">泰安市教育局 · 市级</div><br />
+				<div class="award-date">2023学年下学期</div><br />
+			</div><br />
+			<div class="award-item"><br />
+				<div class="award-title">泰安市"劳动小模范"</div><br />
+				<div class="award-org">泰安市教育局 · 市级</div><br />
+				<div class="award-date">2023学年上学期</div><br />
+			</div><br />
+			<div class="award-item"><br />
+				<div class="award-title">书香少年</div><br />
+				<div class="award-org">新泰市教育和体育局 · 县级</div><br />
+				<div class="award-date">2023学年上学期</div><br />
+			</div><br />
+			<div class="award-item"><br />
+				<div class="award-title">"爱祖国爱家乡"知识竞赛一等奖</div><br />
+				<div class="award-org">中共新泰市委宣传部、新泰市教育和体育局 · 县级</div><br />
+				<div class="award-date">2023学年上学期</div><br />
+			</div><br />
+		</div><br /> <br />
+		<div class="section"><br />
+			<h2 class="section-title">校内荣誉</h2><br />
+			<div class="award-item"><br />
+				<div class="award-title">优秀学生干部、优秀班干部、优秀团员、最佳主持人</div><br />
+				<div class="award-org">新泰市第一中学北校 · 校级</div><br />
+				<div class="award-date">2022-2024学年</div><br />
+			</div><br />
+		</div><br /> <br />
+		<div class="section"><br />
+			<h2 class="section-title">个人优势</h2><br />
+			<p>拥有丰富的学生组织领导经验，出色的沟通协调能力和团队管理能力。多次获得省市级荣誉，表现出优秀的学习能力和综合素质。具备良好的公众演讲和主持能力。</p><br />
+		</div><br />
+	</div><br /><br />
+	<script>
+		<br/> function exportToWord() {<br/> // 由于html2docx库需要特定引入方式，这里提供基本实现思路<br/> // 实际使用时需要确保正确引入库文件<br/> try {<br/> // 创建一个html2docx转换器实例<br/> const converted = html2docx(document.getElementById('resume').innerHTML);<br/> <br/> // 保存文件<br/> saveAs(converted, '张博文-个人简历.docx');<br/> <br/> alert('简历已成功导出为Word文档！');<br/> } catch (error) {<br/> alert('导出失败：' + error.message + '\n请确保已正确引入html2docx和FileSaver库');<br/> console.error('导出错误:', error);<br/> }<br/> }<br/> 
+	</script><br />
+</body><br />
+</html>
